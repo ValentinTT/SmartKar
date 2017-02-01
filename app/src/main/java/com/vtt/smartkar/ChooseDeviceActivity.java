@@ -1,10 +1,8 @@
 package com.vtt.smartkar;
 
-import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -13,14 +11,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ChooseDeviceActivity extends AppCompatActivity{
     private static final String DEBUG_TAG = "ChooseDeviceActivity";
     private static final int REQUEST_CODE_ACTIVATE_BLUETOOTH = 1;
+    private static final int REQUEST_DEVICE_LIST = 2;
 
     private BluetoothAdapter mBluetoothAdapter;
     @BindView(R.id.connect_button)
@@ -65,21 +62,33 @@ public class ChooseDeviceActivity extends AppCompatActivity{
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            showPosibleConnections();
+            showPossibleConnections();
         }
     }
 
-    private void showPosibleConnections(){
+    private void showPossibleConnections(){
         Log.i(DEBUG_TAG, "Connection button pressed");
+        /*Set<BluetoothDevice> devicesList = mBluetoothAdapter.getBondedDevices();
+        if(!devicesList.isEmpty()) {
+            for(BluetoothDevice bluetoothDevice : devicesList){
+                Log.i(DEBUG_TAG, "Bluetooth Device: " + bluetoothDevice.getAddress());
+            }
+        }*/
+        Intent intent = new Intent(ChooseDeviceActivity.this, DeviceListActivity.class);
+        startActivityForResult(intent, REQUEST_DEVICE_LIST);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ACTIVATE_BLUETOOTH) { //Intent that activate bluetooth
             if(resultCode == RESULT_OK) { //Bluetooth is now activated
-                showPosibleConnections();
+                showPossibleConnections();
             }
-        } else {
+        } if(requestCode == REQUEST_DEVICE_LIST){
+            if(resultCode == RESULT_OK){
+                Log.i(DEBUG_TAG, "Address: " + DeviceListActivity.getAddress(data));
+            }
+        } else{
             super.onActivityResult(requestCode, resultCode, data);
         }
     }

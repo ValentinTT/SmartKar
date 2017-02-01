@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-       android:shape="oval">
-    <solid
-        android:color="@color/orange"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/connection_button_enabled"
+          android:state_enabled="true"/>
+    <item android:drawable="@drawable/connection_button_disabled"/>
+</selector>

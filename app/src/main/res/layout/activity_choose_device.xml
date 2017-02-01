@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:background="@color/red"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
+
+    <Button
+        android:text="Connect"
+        android:textSize="40sp"
+        android:textColor="@color/white"
+        android:background="@drawable/connection_button"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/connect_button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

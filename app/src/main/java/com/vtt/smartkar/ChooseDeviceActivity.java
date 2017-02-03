@@ -92,4 +92,8 @@ public class ChooseDeviceActivity extends AppCompatActivity{
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+    private void conectWithDevice(String address){
+
+    }
 }

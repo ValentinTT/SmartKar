@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerHorizontal="true"
+              android:background="@color/gray"
+    android:layout_weight="8">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:layout_weight="5">
+
+
+        <CheckBox
+            android:text="Automatic"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:id="@+id/interaction_automatic_checkbox"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"/>
+
+        <CheckBox
+            android:text="Static control"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:id="@+id/interaction_static_controls_checkbox"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"/>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/orange"
+            android:id="@+id/interaction_speed_seekbar"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/red"
+        android:elevation="10dp"
+        android:layout_weight="3">
+
+        <Button
+            android:layout_width="@dimen/control_button"
+            android:layout_height="@dimen/control_button"
+            android:background="@mipmap/up_control"
+            android:id="@+id/up_control_button"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="@dimen/control_button"
+                android:layout_height="@dimen/control_button"
+                android:background="@mipmap/left_control"
+                android:id="@+id/left_control_button"/>
+
+            <Button
+                android:text="@string/stop_button"
+                android:layout_width="@dimen/control_button"
+                android:layout_height="@dimen/control_button"
+                android:background="@drawable/stop_button"
+                android:id="@+id/stop_control_button"/>
+
+            <Button
+                android:layout_width="@dimen/control_button"
+                android:layout_height="@dimen/control_button"
+                android:background="@mipmap/right_control"
+                android:id="@+id/right_control_button"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="@dimen/control_button"
+            android:layout_height="@dimen/control_button"
+            android:background="@mipmap/down_control"
+            android:id="@+id/down_control_button"/>
+    </LinearLayout>
+</LinearLayout>
